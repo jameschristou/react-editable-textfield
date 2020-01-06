@@ -1,7 +1,12 @@
+$textfield-color-hover:  lightgrey;
+
 .editableTextfield{
     width:200px;
-    background-color: darkgray;
     padding: 10px;
     text-align: center;
     font-weight: bold;
+
+    &:focus{
+        background-color: $textfield-color-hover;
+    }
 }

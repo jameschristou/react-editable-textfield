@@ -6,6 +6,7 @@ const TestPageComponent = () => {
 
   const updateTextValue = (value) => {
     setTextVal(value);
+    console.log("Updated text to " + value);
   }
 
   return (
