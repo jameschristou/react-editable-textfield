@@ -2,16 +2,27 @@ import React, {useState} from "react";
 import EditableTextfield from "../src/EditableTextfield";
 
 const TestPageComponent = () => {
-  const [textVal, setTextVal] = useState();
+  const [companyName, setCompanyName] = useState();
+  const [author, setAuthor] = useState();
 
-  const updateTextValue = (value) => {
-    setTextVal(value);
-    console.log("Updated text to " + value);
-  }
+  var styles = {
+    width: '300px'
+  };
+
+  var styles2 = {
+    width: '400px'
+  };
 
   return (
     <div>
-      <EditableTextfield value={textVal} placeholder="click here to update" updatedTextHandler={updateTextValue} />
+      <div style={styles}>
+        <label>Company Name</label>
+        <EditableTextfield value={companyName} placeholder="click here to update" updatedTextHandler={setCompanyName} />
+      </div>
+      <div style={styles2}>
+        <label>Author</label>
+        <EditableTextfield value={author} placeholder="click here to update" updatedTextHandler={setAuthor} />
+      </div>
     </div>
   );
 }

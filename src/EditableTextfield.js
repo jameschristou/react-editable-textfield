@@ -6,6 +6,7 @@ const EditableTextfield = ({value, placeholder, updatedTextHandler}) => {
   const [id, setId] = useState(null);
   const textField = useRef(null);
   const [displayText, setDisplayText] = useState(null);
+  const [showActionButtons, setShowActionButtons] = useState(false);
 
   useEffect(() => {
     console.log('useEffect:EditableTextfield');
@@ -25,12 +26,14 @@ const EditableTextfield = ({value, placeholder, updatedTextHandler}) => {
 
   const onChangeHandler = (evnt) => {
     console.log('textfield changed');
+    setShowActionButtons(true);
   }
 
   const onBlurHandler = (evnt) => {
     console.log('textfield blur value is ' + textField.current.innerText);
 
     setDisplayText(textField.current.innerText ? textField.current.innerText : placeholder);
+    setShowActionButtons(false);
     updatedTextHandler(textField.current.innerText == placeholder ? "" : textField.current.innerText);
   }
 
@@ -38,10 +41,32 @@ const EditableTextfield = ({value, placeholder, updatedTextHandler}) => {
     setDisplayText(value);
   }
 
+  const onCancelHandler = (evnt) => {
+    console.log('Cancel text');
+    setShowActionButtons(false);
+    setDisplayText(value ? value : placeholder);
+  }
+
+  const onSaveHandler = (evnt) => {
+    console.log('Save text');
+    
+    setDisplayText(textField.current.innerText ? textField.current.innerText : placeholder);
+    setShowActionButtons(false);
+    updatedTextHandler(textField.current.innerText == placeholder ? "" : textField.current.innerText);
+  }
+
   return (
-    <div ref={textField} className="editableTextfield" contentEditable="true" id={`editableTextfield-${id}`} 
-      onInput={e => onChangeHandler(e)} onBlur={e => onBlurHandler(e)} onClick={e => onClickHandler(e)}>
-      {displayText}
+    <div className="editableTextfieldContainer">
+      <div ref={textField} className="editableTextfield" contentEditable="true" id={`editableTextfield-${id}`} 
+        onInput={e => onChangeHandler(e)} onBlur={e => onBlurHandler(e)} onClick={e => onClickHandler(e)}>
+        {displayText}
+      </div>
+      <div className={`editableTextfieldActionsContainer${showActionButtons ? '' : ' hidden'}`}>
+        <div className="editableTextfieldActions">
+          <button className="editableTextfieldAction" onClick={evnt => onSaveHandler(evnt)}>+</button>
+          <button className="editableTextfieldAction" onClick={evnt => onCancelHandler(evnt)}>X</button>
+        </div>
+      </div>
     </div>
   );
 }

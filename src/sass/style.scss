@@ -1,12 +1,48 @@
-$textfield-color-hover:  lightgrey;
+$textfield-color-hover:  lightblue;
+$action-color:  lightgrey;
+$action-color-hover:  grey;
 
-.editableTextfield{
-    width:200px;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
+.editableTextfieldContainer{
+    .editableTextfield{
+        padding: 10px;
+        border-radius: 4px;
+    
+        &:hover,
+        &:focus{
+            background-color: $textfield-color-hover;
+        }
+    }
 
-    &:focus{
-        background-color: $textfield-color-hover;
+    .editableTextfieldActionsContainer{
+        position: relative;
+
+        .editableTextfieldActions{
+            position:absolute;
+            right: 0px;
+            top: 4px;
+
+            .editableTextfieldAction{
+                font-weight: 700;
+                border: none;
+                width: 35px;
+                height: 35px;
+                font-family: "Open Sans";
+                margin: 0 0 0 2px;
+                font-size: 12px;
+                display: inline-block;
+                background-color: $action-color;
+                border-radius: 3px;
+
+                @media (hover: hover){
+                    &:hover{
+                        background-color: $action-color-hover;
+                    }
+                }
+            }
+        }
+    }
+
+    .hidden{
+        display:none;
     }
 }
