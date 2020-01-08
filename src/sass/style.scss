@@ -1,15 +1,18 @@
 $textfield-color-hover:  lightblue;
-$action-color:  lightgrey;
-$action-color-hover:  grey;
+$action-color:  rgba(9, 30, 66, 0.04);
+$action-color-hover:  lightgrey;
 
 .editableTextfieldContainer{
     .editableTextfield{
         padding: 10px;
         border-radius: 4px;
     
-        &:hover,
-        &:focus{
+        &:hover{
             background-color: $textfield-color-hover;
+        }
+
+        &:focus{
+            background-color: $action-color;
         }
     }
 
@@ -23,7 +26,7 @@ $action-color-hover:  grey;
 
             .editableTextfieldAction{
                 font-weight: 700;
-                border: none;
+                border: 1px solid lightgrey;
                 width: 35px;
                 height: 35px;
                 font-family: "Open Sans";
@@ -32,6 +35,7 @@ $action-color-hover:  grey;
                 display: inline-block;
                 background-color: $action-color;
                 border-radius: 3px;
+                fill: grey;
 
                 @media (hover: hover){
                     &:hover{
