@@ -1,6 +1,6 @@
 $textfield-color-hover:  lightblue;
-$action-color:  rgba(9, 30, 66, 0.04);
-$action-color-hover:  lightgrey;
+$action-color:  gainsboro;
+$action-color-hover:  silver;
 
 .editableTextfieldContainer{
     .editableTextfield{
@@ -26,7 +26,7 @@ $action-color-hover:  lightgrey;
 
             .editableTextfieldAction{
                 font-weight: 700;
-                border: 1px solid lightgrey;
+                border: 1px solid $action-color-hover;
                 width: 35px;
                 height: 35px;
                 font-family: "Open Sans";
