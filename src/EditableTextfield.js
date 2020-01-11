@@ -66,7 +66,7 @@ const EditableTextfield = ({value, placeholder, updatedTextHandler}) => {
   const onBlurHandler = (evnt) => {
     console.log('textfield blur value is ' + textField.current.innerText);
 
-    setDisplayText(textField.current.innerText ? textField.current.innerText : placeholder);
+    textField.current.innerText = textField.current.innerText ? textField.current.innerText : placeholder;
     setShowActionButtons(false);
     updatedTextHandler(textField.current.innerText == placeholder ? "" : textField.current.innerText);
   }
@@ -80,13 +80,12 @@ const EditableTextfield = ({value, placeholder, updatedTextHandler}) => {
     console.log('Cancel text');
     evnt.stopPropagation();
     setShowActionButtons(false);
-    setDisplayText(value ? value : placeholder);
+    textField.current.innerText = value ? value : placeholder;
   }
 
   const onSaveHandler = (evnt) => {
     console.log('Save text');
     
-    setDisplayText(textField.current.innerText ? textField.current.innerText : placeholder);
     setShowActionButtons(false);
     updatedTextHandler(textField.current.innerText == placeholder ? "" : textField.current.innerText);
   }
