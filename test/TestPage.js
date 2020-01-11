@@ -5,6 +5,10 @@ const TestPageComponent = () => {
   const [companyName, setCompanyName] = useState();
   const [author, setAuthor] = useState();
 
+  const updatedTextHandler = (text) => {
+    setCompanyName(text);
+  }
+
   var styles = {
     width: '300px'
   };
@@ -17,7 +21,7 @@ const TestPageComponent = () => {
     <div>
       <div style={styles}>
         <label>Company Name</label>
-        <EditableTextfield value={companyName} placeholder="click here to update" updatedTextHandler={setCompanyName} />
+        <EditableTextfield value={companyName} placeholder="click here to update" updatedTextHandler={updatedTextHandler} />
       </div>
       <div style={styles2}>
         <label>Author</label>

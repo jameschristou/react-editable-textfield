@@ -1,6 +1,6 @@
 $textfield-color-hover:  lightblue;
 $action-color:  gainsboro;
-$action-color-hover:  silver;
+$action-color-hover: darken($action-color, 8%);
 
 .editableTextfieldContainer{
     .editableTextfield{
