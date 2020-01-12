@@ -1,6 +1,6 @@
 {
   "name": "@jchristou/react-editable-textfield",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A react editable textfield",
   "main": "dist-component/index.js",
   "scripts": {

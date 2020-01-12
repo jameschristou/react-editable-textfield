@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   mode: 'production',
   entry: {
-    MyComponent: './src/MyComponent.js',
+    MyComponent: './src/EditableTextfield.js',
   },
   module: {
     rules: [
@@ -35,7 +35,7 @@ module.exports = {
     publicPath: '/',
     filename: 'index.js',
     libraryTarget: 'umd',
-    library: 'my-component',
+    library: 'react-editable-textfield',
   },
   externals: {
     react: {
