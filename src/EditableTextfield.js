@@ -19,10 +19,10 @@ const EditableTextfield = ({value, placeholder, updatedTextHandler}) => {
 
     setDisplayText(value ? value : placeholder);
 
-    // if(!clickOutEventRegistered){
-    //   document.addEventListener("click", documentClickEventListener);
-    //   setClickOutEventRegistered(true);
-    // }
+    if(!clickOutEventRegistered){
+      document.addEventListener("click", documentClickEventListener);
+      setClickOutEventRegistered(true);
+    }
   }, [value]);
 
   const generateRandomId = () => {
@@ -47,28 +47,17 @@ const EditableTextfield = ({value, placeholder, updatedTextHandler}) => {
 
     do {
       if (targetElement == clickOutElement) {
-          return;
+        return;
       }
       // Go up the DOM.
       targetElement = targetElement.parentNode;
     } while (targetElement);
 
-    onBlurHandler(evnt);
+    onSaveHandler(evnt);
   }
 
   const onChangeHandler = (evnt) => {
-    console.log('textfield changed');
     setShowActionButtons(true);
-
-    console.log('Current value:' + value);
-  }
-
-  const onBlurHandler = (evnt) => {
-    console.log('textfield blur value is ' + textField.current.innerText);
-
-    textField.current.innerText = textField.current.innerText ? textField.current.innerText : placeholder;
-    setShowActionButtons(false);
-    updatedTextHandler(textField.current.innerText == placeholder ? "" : textField.current.innerText);
   }
 
   const onClickHandler = (evnt) => {
@@ -77,15 +66,12 @@ const EditableTextfield = ({value, placeholder, updatedTextHandler}) => {
   }
 
   const onCancelHandler = (evnt) => {
-    console.log('Cancel text');
     evnt.stopPropagation();
     setShowActionButtons(false);
     textField.current.innerText = value ? value : placeholder;
   }
 
   const onSaveHandler = (evnt) => {
-    console.log('Save text');
-    
     setShowActionButtons(false);
     updatedTextHandler(textField.current.innerText == placeholder ? "" : textField.current.innerText);
   }
