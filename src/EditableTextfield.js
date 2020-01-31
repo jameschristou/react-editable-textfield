@@ -39,7 +39,7 @@ const EditableTextfield = ({value, placeholder, updatedTextHandler}) => {
     if(clickOutElement.className.includes('hidden')) return;
 
     // if the user is clicking into the textfield
-    if(evnt.target == document.querySelector(`#editableTextfield-${id}`)){
+    if(evnt.target == document.getElementById(`editableTextfield-${id}`)){
       return;
     }
 
